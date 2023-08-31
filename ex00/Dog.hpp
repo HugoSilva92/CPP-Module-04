@@ -9,7 +9,7 @@ class Dog : public Animal{
 		Dog(std::string type);
 		Dog(Dog const& obj);
 		Dog &operator=(Dog const& obj);
-		~Dog(void);
+		virtual ~Dog(void);
 
 		void	makeSound()const;
 };
