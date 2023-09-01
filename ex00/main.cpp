@@ -1,15 +1,31 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
-void	sheet_tests(void){
+void	diferenceAnimal(void){
+	const Animal *cat = new Cat();
+	const WrongAnimal *wrongCat = new WrongCat();
+
+	std::cout << cat->getType() << ": ";
+	cat->makeSound();
+	std::cout << wrongCat->getType() << ": ";
+	wrongCat->makeSound();
+	std::cout << std::endl;
+	delete cat;
+	delete wrongCat;
+}
+
+void	sheetTests(void){
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
+	std::cout << std::endl;
+	std::cout << j->getType() << ": ";
 	j->makeSound();
+	std::cout << i->getType() << ": ";
+	i->makeSound();
+
 	meta->makeSound();
 
 	delete meta;
@@ -19,8 +35,9 @@ void	sheet_tests(void){
 
 int main()
 {
-	sheet_tests();
-
+	sheetTests();
+	std::cout << std::endl;
+	diferenceAnimal();
 	return 0;
 }
 
