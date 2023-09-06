@@ -20,6 +20,7 @@ class Character : public ICharacter{
 		void	equip(AMateria* spell);
 		void	unequip(int idx);
 		void	use(int idx, ICharacter& target);
+		std::string const & getName() const;
 };
 
 #endif

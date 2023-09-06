@@ -5,12 +5,16 @@
 void	diferenceAnimal(void){
 	const Animal *cat = new Cat();
 	const WrongAnimal *wrongCat = new WrongCat();
+	WrongCat bicho("bicho");
 
 	std::cout << cat->getType() << ": ";
 	cat->makeSound();
 	std::cout << wrongCat->getType() << ": ";
 	wrongCat->makeSound();
+	std::cout << bicho.getType() << ": ";
+	bicho.makeSound();
 	std::cout << std::endl;
+
 	delete cat;
 	delete wrongCat;
 }
@@ -35,6 +39,8 @@ void	sheetTests(void){
 
 int main()
 {
+	const Animal teste("bicho");
+	teste.makeSound();
 	sheetTests();
 	std::cout << std::endl;
 	diferenceAnimal();
