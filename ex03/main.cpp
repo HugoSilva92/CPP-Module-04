@@ -37,20 +37,30 @@ void	myTests(){
 	delete src;
 	}
 	{
+		MateriaSource *src = new MateriaSource();
+		MateriaSource *copySrc = new MateriaSource(*src);
+
 		Character *bob = new Character();
 		Character* copyBob = new Character(*bob);
 
 		Cure *heal = new Cure();
 		Cure *copyHeal = new Cure(*heal);
 
-		std::cout << heal << std::endl;
-		std::cout << copyHeal << std::endl;
-		std::cout << &bob << std::endl;
-		std::cout << &copyBob << std::endl;
-
-		delete bob;
-		delete copyBob;
+		std::cout << std::endl;
+		std::cout << &heal << std::endl;
 		delete heal;
+		std::cout << &copyHeal << std::endl;
+		std::cout << &bob << std::endl;
+		delete bob;
+		std::cout << &copyBob << std::endl;
+		std::cout << &src << std::endl;
+		delete src;
+		std::cout << &copySrc << std::endl;
+		std::cout << std::endl;
+
+
+		delete copyBob;
+		delete copySrc;
 		delete copyHeal;
 	}
 }

@@ -1,7 +1,8 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(void) : _learned(0){
-	memset(this->_spells, 0, 4 * sizeof(AMateria*));
+	for (int i = 0; i < 4; i++)
+		this->_spells[i] = NULL;
 	// std::cout << "MateriaSource default constructor called" << std::endl;
 }
 
@@ -14,10 +15,8 @@ MateriaSource::MateriaSource(MateriaSource const& obj) : _learned(obj._learned){
 MateriaSource &MateriaSource::operator=(MateriaSource const& obj){
 	if (this == &obj)
 		return *this;
-	for (int i = 0; i < this->_learned; i++)
-		delete _spells[i];
-	this->_learned = obj._learned;
-	memcpy(this->_spells, obj._spells, 4 * sizeof(AMateria*));
+	for (int i = 0; i < 4; i++)
+		this->_spells[i] = obj._spells[i];
 	return *this;
 	// std::cout << "MateriaSource overload operator called" << std::endl;
 }
@@ -43,3 +42,4 @@ AMateria* MateriaSource::createMateria(std::string const& type){
 	}
 	return (NULL);
 }
+
