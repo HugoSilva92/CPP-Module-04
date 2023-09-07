@@ -3,18 +3,18 @@
 #include "WrongCat.hpp"
 
 void	seeBrainAnimal(void){				//Seeing that is a deep copy!
-	Cat	*cat = new Cat();
-	Cat	*deepCat = new Cat(*cat);
+	Cat	cat;
+	Cat	deepCat = cat;
 	Dog	*dog = new Dog();
 	Dog *deepDog = new Dog(*dog);
 
 	std::cout << "------------Cat----------------------" << std::endl;
-	std::cout << cat->getType() << std::endl;
-	std::cout << cat->getBrain() << ". My name now is: Pepy " << std::endl;
-	cat->setType("Peppy");
-	std::cout << cat->getType();
+	std::cout << cat.getType() << std::endl;
+	std::cout << cat.getBrain() << ". My name now is: Pepy " << std::endl;
+	cat.setType("Peppy");
+	std::cout << cat.getType();
 	std::cout << std::endl;
-	std::cout << deepCat->getBrain() << ": " << deepCat->getType();
+	std::cout << deepCat.getBrain() << ": " << deepCat.getType();
 	std::cout << std::endl;
 	std::cout << std::endl;
 	std::cout << "--------------DOG--------------------" << std::endl;
@@ -28,8 +28,6 @@ void	seeBrainAnimal(void){				//Seeing that is a deep copy!
 	std::cout << std::endl;
 	std::cout << std::endl;
 
-	delete deepCat;
-	delete cat;
 	delete deepDog;
 	delete dog;
 }

@@ -40,8 +40,8 @@ void	myTests(){
 		MateriaSource *src = new MateriaSource();
 		MateriaSource *copySrc = new MateriaSource(*src);
 
-		Character *bob = new Character();
-		Character* copyBob = new Character(*bob);
+		Character bob;
+		Character copyBob = bob;
 
 		Cure *heal = new Cure();
 		Cure *copyHeal = new Cure(*heal);
@@ -51,7 +51,6 @@ void	myTests(){
 		delete heal;
 		std::cout << &copyHeal << std::endl;
 		std::cout << &bob << std::endl;
-		delete bob;
 		std::cout << &copyBob << std::endl;
 		std::cout << &src << std::endl;
 		delete src;
@@ -59,7 +58,6 @@ void	myTests(){
 		std::cout << std::endl;
 
 
-		delete copyBob;
 		delete copySrc;
 		delete copyHeal;
 	}
