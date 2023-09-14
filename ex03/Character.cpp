@@ -19,8 +19,14 @@ Character::Character(std::string name) : _name(name), _index(0){
 Character::Character(Character const& obj) : _name(obj._name), _index(obj._index){
 	// std::cout << "Copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++){
-		this->_inventory[i] = obj._inventory[i];
-		this->_dropped[i] = obj._dropped[i];
+		if (obj._inventory[i])
+			this->_inventory[i] = obj._inventory[i]->clone();
+		else
+			this->_inventory[i] = obj._inventory[i];
+		if (obj._dropped[i])
+			this->_dropped[i] = obj._dropped[i]->clone();
+		else
+			this->_dropped[i] = obj._dropped[i];
 	}
 }
 
@@ -34,8 +40,10 @@ Character &Character::operator=(Character const& obj){
 			delete this->_inventory[i];
 		if (this->_dropped[i])
 			delete this->_dropped[i];
-		this->_inventory[i] = obj._inventory[i];
-		this->_dropped[i] = obj._dropped[i];
+		if (obj._inventory[i])
+			this->_inventory[i] = obj._inventory[i]->clone();
+		if (obj._dropped[i])
+			this->_dropped[i] = obj._dropped[i]->clone();
 	}
 	//try copying all the array at one time!
 	// std::cout << "Character operator overload called" << std::endl;
